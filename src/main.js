@@ -15,7 +15,7 @@ var title = document.querySelector("#poster-title");
 var quote = document.querySelector("#poster-quote");
 //var newPoster = new Poster(imageURL, title, quote);
 
-//var saveThisPosterBtn = document.querySelector(".save-poster");
+var saveThisPosterBtn = document.querySelector(".save-poster");
 var entirePoster = document.querySelector(".main-poster");
 // we've provided you with some data to work with 👇
 var images = [
@@ -130,7 +130,7 @@ showSavedPosterBtn.addEventListener("click", switchToSaved);
 neverMindButton.addEventListener("click", takeMeBack);
 backToMain.addEventListener("click", takeMeBack);
 showMyPosterButton.addEventListener("click", makePoster);
-
+saveThisPosterBtn.addEventListener("click", savePoster);
 //saveThisPosterBtn.addEventListener("click", makePstrDisappear);
 
 // functions and event handlers go here 👇
@@ -175,6 +175,10 @@ function makePoster() {
   entirePoster.classList.remove("hidden");
   posterForm.classList.add("hidden");
   newPoster = new Poster(images[0], titles[0], quotes[0]);
+}
+
+function savePoster() {
+  savedPosters.unshift(newPoster)
 }
 // function makePstrDisappear() {
 //   entirePoster.classList.add("hidden")
