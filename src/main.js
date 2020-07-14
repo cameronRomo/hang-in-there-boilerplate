@@ -129,7 +129,7 @@ makeButton.addEventListener("click", switchToForm);
 window.addEventListener("load", randomPoster);
 showSavedPosterBtn.addEventListener("click", function(){
   switchToSaved();
-  appendElements();
+  //appendElements();
   showSavedPosters();
 });
 neverMindButton.addEventListener("click", takeMeBack);
@@ -197,25 +197,28 @@ function savePoster() {
 };
 
 function showSavedPosters() {
-  for(var i = 0; i < savedPoster.length; i++) {
-    var test = `<section>
-                  <img${savedPosters[i].imageURL}>
-                  <h2>${savedPosters[i].title}</h2>
-                  <h4>${savedPosters[i].quote}</h4>
-                </section>`
-    savedPoster[i].insertAdjacentHTML("afterbegin", test);
+  for(var i = 0; i < postersGrid.length; i++) {
+    var miniPoster =
+    `<article class="mini-poster" id=${savedPosters[i].id}>
+        <img src=${savedPosters[i].imageURL}>
+        <h2>${savedPosters[i].title}</h2>
+        <h4>${savedPosters[i].quote}</h4>
+     </article>`
+    postersGrid[i].insertAdjacentHTML("afterbegin", miniPoster);
   };
-  savedPoster.classList.add("mini-poster");
+  //postersGrid.classList.add("mini-poster");
 };
 
-function appendElements() {
-  var img = document.createElement("img");
-  var h2 = document.createElement("h2");
-  var h4 = document.createElement("h4");
-  savedPoster.appendChild(img);
-  savedPoster.appendChild(h2);
-  savedPoster.appendChild(h4);
-};
+// function appendElements() {
+//   var id = document.createElement("id");
+//   var img = document.createElement("img");
+//   var h2 = document.createElement("h2");
+//   var h4 = document.createElement("h4");
+//   postersGrid.appendChild(id);
+//   postersGrid.appendChild(img);
+//   postersGrid.appendChild(h2);
+//   postersGrid.appendChild(h4);
+// };
 //   //switchToSaved();
 // };
 // function makePstrDisappear() {
