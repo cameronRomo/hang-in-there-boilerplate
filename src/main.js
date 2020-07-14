@@ -14,7 +14,6 @@ var imageURL = document.querySelector("#poster-image-url");
 var title = document.querySelector("#poster-title");
 var quote = document.querySelector("#poster-quote");
 var postersGrid = document.querySelectorAll(".saved-posters-grid");
-
 var saveThisPosterBtn = document.querySelector(".save-poster");
 var entirePoster = document.querySelector(".main-poster");
 
@@ -129,7 +128,8 @@ button.addEventListener("click", randomPoster);
 makeButton.addEventListener("click", switchToForm);
 window.addEventListener("load", randomPoster);
 showSavedPosterBtn.addEventListener("click", function(){
-  switchToSaved()
+  switchToSaved();
+  //appendElements();
   showSavedPosters();
 });
 neverMindButton.addEventListener("click", takeMeBack);
@@ -176,32 +176,50 @@ function inputArrays() {
 function makePoster() {
   event.preventDefault();
   inputArrays();
-  posterImage.src = images[0];
-  posterTitle.innerText = titles[0];
-  posterQuote.innerText = quotes[0];
-  entirePoster.classList.remove("hidden");
-  posterForm.classList.add("hidden");
   newPoster = new Poster(images[0], titles[0], quotes[0]);
-}
+  posterImage.src = newPoster.imageURL;
+  posterTitle.innerText = newPoster.title;
+  posterQuote.innerText = newPoster.quote;
+  takeMeBack();
+  // entirePoster.classList.remove("hidden");
+  // posterForm.classList.add("hidden");
+};
 
 function savePoster() {
+  console.log("hello");
   images.unshift(posterImage.src);
   titles.unshift(posterTitle.innerText);
   quotes.unshift(posterQuote.innerText);
   newPoster = new Poster(images[0], titles[0], quotes[0]);
-  for (var i = 0; i < savedPosters.length; i++) {
-    if (savedPosters[i].includes(newPoster) === false) {
+  if (savedPosters.includes(newPoster) == false) {
       savedPosters.unshift(newPoster);
-    }
-  }
+    };
+  console.log(savedPosters);
 };
 
 function showSavedPosters() {
   for(var i = 0; i < postersGrid.length; i++) {
-    var test = `<article><img${savedPosters[i].imageURL}><h2>${savedPosters[i].title}</h2><h4>${savedPosters[i].quote}</h4></article>`
-    postersGrid[i].insertAdjacentHTML("afterbegin", test);
-  }
-}
+    var miniPoster =
+      `<article class="mini-poster" id=${savedPosters[i].id}>
+          <img src=${savedPosters[i].imageURL}>
+          <h2>${savedPosters[i].title}</h2>
+          <h4>${savedPosters[i].quote}</h4>
+       </article>`
+    postersGrid[i].insertAdjacentHTML("afterbegin", miniPoster);
+  };
+  //postersGrid.classList.add("mini-poster");
+};
+
+// function appendElements() {
+//   var id = document.createElement("id");
+//   var img = document.createElement("img");
+//   var h2 = document.createElement("h2");
+//   var h4 = document.createElement("h4");
+//   postersGrid.appendChild(id);
+//   postersGrid.appendChild(img);
+//   postersGrid.appendChild(h2);
+//   postersGrid.appendChild(h4);
+// };
 //   //switchToSaved();
 // };
 // function makePstrDisappear() {
