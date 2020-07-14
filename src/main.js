@@ -176,12 +176,13 @@ function inputArrays() {
 function makePoster() {
   event.preventDefault();
   inputArrays();
-  posterImage.src = images[0];
-  posterTitle.innerText = titles[0];
-  posterQuote.innerText = quotes[0];
-  entirePoster.classList.remove("hidden");
-  posterForm.classList.add("hidden");
   newPoster = new Poster(images[0], titles[0], quotes[0]);
+  posterImage.src = newPoster.imageURL;
+  posterTitle.innerText = newPoster.title;
+  posterQuote.innerText = newPoster.quote;
+  takeMeBack();
+  // entirePoster.classList.remove("hidden");
+  // posterForm.classList.add("hidden");
 };
 
 function savePoster() {
@@ -190,20 +191,20 @@ function savePoster() {
   titles.unshift(posterTitle.innerText);
   quotes.unshift(posterQuote.innerText);
   newPoster = new Poster(images[0], titles[0], quotes[0]);
-  if (savedPosters.includes(newPoster) === false) {
+  if (savedPosters.includes(newPoster) == false) {
       savedPosters.unshift(newPoster);
-      console.log(savedPosters);
     };
+  console.log(savedPosters);
 };
 
 function showSavedPosters() {
   for(var i = 0; i < postersGrid.length; i++) {
     var miniPoster =
-    `<article class="mini-poster" id=${savedPosters[i].id}>
-        <img src=${savedPosters[i].imageURL}>
-        <h2>${savedPosters[i].title}</h2>
-        <h4>${savedPosters[i].quote}</h4>
-     </article>`
+      `<article class="mini-poster" id=${savedPosters[i].id}>
+          <img src=${savedPosters[i].imageURL}>
+          <h2>${savedPosters[i].title}</h2>
+          <h4>${savedPosters[i].quote}</h4>
+       </article>`
     postersGrid[i].insertAdjacentHTML("afterbegin", miniPoster);
   };
   //postersGrid.classList.add("mini-poster");
