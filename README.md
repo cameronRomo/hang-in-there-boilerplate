@@ -4,7 +4,7 @@
 
 ## Project Team
 
-Scott Ertmer, Project Manager
+Scott Ertmer, Project Manager, https://github.com/sertmer
 
 Cameron Romo, Contributor, https://github.com/cameronRomo
 
@@ -14,31 +14,27 @@ Stacy Potten, Contributor, https://github.com/stacyp2006
 
 ### Main Page and Random Posters
 
-![screenshot of main page showing poster]
+![screenshot of main page showing poster](/readme-imgs/homepage.png)
 
 - When the page loads, we should see a poster with a randomly selected image, title, and quote.
 
-(giphy of random poster function)
+[Imgur](https://i.imgur.com/lMVnO9O.gifv)
 
 - When the user clicks the `Show Another Random Poster` button, a new, random poster is generated. 
 
 ### Make Your Own Poster
 
-![screenshot of form]/gif filling it out
+![Imgur](https://i.imgur.com/f2mPGaB.gifv)
 
 - After clicking the `Make Your Own Poster` button, users can enter an image URL, a title, and a quote to create their own custom poster.
-
-!gif of click to main screen
 
 - Clicking the `Show My Poster` button will return users to the main screen where they will see their custom poster.
 
 ### Saving Posters
 
-!gif of click on save poster button
+![Imgur](https://i.imgur.com/RAFzfBx.gifv)
 
 - From the main screen, users can also click `Save This Poster` to save the poster currently displayed. Users can save the randomly generated posters or posters of their own creation.
-
-![screenshot of saved posters page]
 
 - To see the posters a user has saved, they can click on `Show Saved Posters`. This will take them to a screen which shows each of the posters they have saved displayed as miniposters in a grid format.
 
