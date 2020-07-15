@@ -1,20 +1,20 @@
-var posterImage = document.querySelector(".poster-img");
-var posterTitle = document.querySelector(".poster-title");
-var posterQuote = document.querySelector(".poster-quote");
-var button = document.querySelector(".show-random");
-var makeButton = document.querySelector(".show-form");
-var posterForm = document.querySelector(".poster-form");
-var showSavedPosterBtn = document.querySelector(".show-saved");
-var savedPoster = document.querySelector(".saved-posters");
-var neverMindButton = document.querySelector(".show-main");
-var backToMain = document.querySelector(".back-to-main");
-var showMyPosterButton = document.querySelector(".make-poster");
-var imageURL = document.querySelector("#poster-image-url");
-var title = document.querySelector("#poster-title");
-var quote = document.querySelector("#poster-quote");
-var postersGrid = document.querySelector(".saved-posters-grid");
-var saveThisPosterBtn = document.querySelector(".save-poster");
-var entirePoster = document.querySelector(".main-poster");
+var posterImage = document.querySelector('.poster-img');
+var posterTitle = document.querySelector('.poster-title');
+var posterQuote = document.querySelector('.poster-quote');
+var button = document.querySelector('.show-random');
+var makeButton = document.querySelector('.show-form');
+var posterForm = document.querySelector('.poster-form');
+var showSavedPosterBtn = document.querySelector('.show-saved');
+var savedPoster = document.querySelector('.saved-posters');
+var neverMindButton = document.querySelector('.show-main');
+var backToMain = document.querySelector('.back-to-main');
+var showMyPosterButton = document.querySelector('.make-poster');
+var imageURL = document.querySelector('#poster-image-url');
+var title = document.querySelector('#poster-title');
+var quote = document.querySelector('#poster-quote');
+var postersGrid = document.querySelector('.saved-posters-grid');
+var saveThisPosterBtn = document.querySelector('.save-poster');
+var entirePoster = document.querySelector('.main-poster');
 
 var images = [
   "./assets/bees.jpg",
@@ -116,14 +116,14 @@ var quotes = [
 var savedPosters = [];
 var newPoster = new Poster(images[0], titles[0], quotes[0]);
 
-button.addEventListener("click", randomPoster);
-makeButton.addEventListener("click", switchToForm);
-window.addEventListener("load", randomPoster);
-showSavedPosterBtn.addEventListener("click", switchToSaved);
-neverMindButton.addEventListener("click", takeMeBack);
-backToMain.addEventListener("click", takeMeBack);
-showMyPosterButton.addEventListener("click", makePoster);
-saveThisPosterBtn.addEventListener("click", savePoster);
+button.addEventListener('click', randomPoster);
+makeButton.addEventListener('click', switchToForm);
+window.addEventListener('load', randomPoster);
+showSavedPosterBtn.addEventListener('click', switchToSaved);
+neverMindButton.addEventListener('click', takeMeBack);
+backToMain.addEventListener('click', takeMeBack);
+showMyPosterButton.addEventListener('click', makePoster);
+saveThisPosterBtn.addEventListener('click', savePoster);
 
 function getRandomIndex(array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -139,20 +139,20 @@ function randomPoster() {
 };
 
 function switchToForm() {
-  entirePoster.classList.add("hidden");
-  posterForm.classList.remove("hidden");
+  entirePoster.classList.add('hidden');
+  posterForm.classList.remove('hidden');
 };
 
 function switchToSaved() {
-  entirePoster.classList.add("hidden");
-  savedPoster.classList.remove("hidden");
+  entirePoster.classList.add('hidden');
+  savedPoster.classList.remove('hidden');
   showSavedPosters();
 };
 
 function takeMeBack() {
-  entirePoster.classList.remove("hidden");
-  posterForm.classList.add("hidden");
-  savedPoster.classList.add("hidden");
+  entirePoster.classList.remove('hidden');
+  posterForm.classList.add('hidden');
+  savedPoster.classList.add('hidden');
 };
 
 function inputArrays() {
@@ -173,29 +173,28 @@ function displayPoster(posterCurrent) {
   posterImage.src = posterCurrent.imageURL;
   posterTitle.innerText = posterCurrent.title;
   posterQuote.innerText = posterCurrent.quote;
-}
+};
 
 function savePoster() {
   newPoster = new Poster(images[0], titles[0], quotes[0]);
   for (var i = 0; i < savedPosters.length; i++) {
     if (newPoster.imageURL === savedPosters[i].imageURL && newPoster.title === savedPosters[i].title && newPoster.quote === savedPosters[i].quote) {
-      alert("Poster allready exists");
-      return
-    }
-  }
+      alert('Poster already exists');
+      return;
+    };
+  };
   savedPosters.unshift(newPoster);
-  console.log(savedPosters)
 };
 
 function showSavedPosters() {
-  postersGrid.innerHTML = "";
+  postersGrid.innerHTML = '';
   for(var i = 0; i < savedPosters.length; i++) {
-    postersGrid.insertAdjacentHTML("afterbegin",`
+    postersGrid.insertAdjacentHTML('afterbegin', `
     <article class="mini-poster" id="${savedPosters[i].id}">
         <img src=${savedPosters[i].imageURL}>
         <h2>${savedPosters[i].title}</h2>
         <h4>${savedPosters[i].quote}</h4>
-     </article>`
-  );
+    </article>`
+    );
   };
 };
