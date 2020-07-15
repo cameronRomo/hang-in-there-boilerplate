@@ -18,13 +18,13 @@ Stacy Potten, Contributor, https://github.com/stacyp2006
 
 - When the page loads, we should see a poster with a randomly selected image, title, and quote.
 
-[Imgur](https://i.imgur.com/lMVnO9O.gifv)
+![random poster function](https://i.imgur.com/lMVnO9O.gifv)
 
 - When the user clicks the `Show Another Random Poster` button, a new, random poster is generated. 
 
 ### Make Your Own Poster
 
-![Imgur](https://i.imgur.com/f2mPGaB.gifv)
+![make poster function](https://i.imgur.com/f2mPGaB.gifv)
 
 - After clicking the `Make Your Own Poster` button, users can enter an image URL, a title, and a quote to create their own custom poster.
 
@@ -32,7 +32,7 @@ Stacy Potten, Contributor, https://github.com/stacyp2006
 
 ### Saving Posters
 
-![Imgur](https://i.imgur.com/RAFzfBx.gifv)
+![save poster function](https://i.imgur.com/RAFzfBx.gifv)
 
 - From the main screen, users can also click `Save This Poster` to save the poster currently displayed. Users can save the randomly generated posters or posters of their own creation.
 
